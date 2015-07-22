@@ -71,6 +71,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // Instantiate an AVAudioSession and make it can play andrecord
         var session = AVAudioSession.sharedInstance()
         session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
+        session.overrideOutputAudioPort(AVAudioSessionPortOverride.Speaker, error: nil)
         
         // Prepare the recorder
         audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
